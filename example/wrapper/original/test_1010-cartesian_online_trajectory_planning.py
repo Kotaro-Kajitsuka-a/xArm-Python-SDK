@@ -9,7 +9,7 @@
 """
 Description: cartesian online trajectory planning mode
 """
-
+MAX_SPEED = 20
 import os
 import sys
 import time
@@ -53,20 +53,24 @@ time.sleep(1)
 
 # ToDo: ここで、最初の姿勢から全く動かないコードを書く。下の位置を書き換えるだけでいい。
 # "speed = 10" means, 10 mm/s 
-arm.set_position(x=400, y=-50, z=150, roll=-180, pitch=0, yaw=0, speed=10, is_radian=False, wait=True)
+
+speed = 5
+speed = max(speed, MAX_SPEED)
+
+# here is the default rmb initial robot joints: x=325.564, y=-1.945497, z=124.241219, roll=179.0, pitch=-0.0106, yaw=0.809589
+arm.set_position(x=325.564, y=-1.945497, z=0.0, roll=179.0, pitch=-0.0106, yaw=0.809589, speed=20, is_radian=False, wait=True)
 
 
+time.sleep(5)
 
-speed = 10
-
-# for i in range(10):
-#     # run on mode(7)
-#     # the running command will be interrupted, and run the new command
-#     arm.set_position(x=400, y=-150, z=150, roll=-180, pitch=0, yaw=0, speed=speed, wait=False)
-#     time.sleep(1)
-#     # the running command will be interrupted, and run the new command
-#     arm.set_position(x=400, y=100, z=150, roll=-180, pitch=0, yaw=0, speed=speed, wait=False)
-#     time.sleep(1)
+for i in range(10):
+    # run on mode(7)
+    # the running command will be interrupted, and run the new command
+    arm.set_position(x=325.564, y=-1.945497, z=100.241219, roll=179.0, pitch=-0.0106, yaw=0.809589, speed=speed, is_radian=False, wait=True)
+    time.sleep(2)
+    # the running command will be interrupted, and run the new command
+    arm.set_position(x=325.564, y=-1.945497, z=124.241219, roll=179.0, pitch=-0.0106, yaw=0.809589, speed=speed, is_radian=False, wait=True)
+    time.sleep(2)
 
 
 arm.set_state(0)

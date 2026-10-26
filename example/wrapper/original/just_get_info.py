@@ -67,4 +67,7 @@ if code == 0:
     print("Current TCP pose", pose)
 
 
+print(f"TCP Offset: {arm.tcp_offset}")
+print(f"World Offset: {arm.world_offset}")
+
 arm.disconnect()
