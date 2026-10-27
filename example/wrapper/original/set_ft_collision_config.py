@@ -18,7 +18,7 @@ from xarm.wrapper import XArmAPI
 
 # SDK ranges: force 5..200 N, torque 0.1..4 Nm. 2 N is outside the documented range.
 # DEFAULT_THRESHOLDS = [30, 30, 30, 0.0, 0.0, 0.0]
-THRESHOLDS = [10, 10, 10, 0.0, 0.0, 0.0]
+THRESHOLDS = [10, 10, 10, 3, 3, 3]
 # SDK ranges: translation 2..500 mm, rotation 0.2..50 degrees.
 # DEFAULT_REBOUND_DISTANCES = [10.0, 10.0, 10.0, 2.0, 2.0, 2.0]
 
