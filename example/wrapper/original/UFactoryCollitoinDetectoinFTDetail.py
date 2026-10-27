@@ -8,8 +8,13 @@ arm.motion_enable(enable=True)
 time.sleep(2)
 arm.set_ft_sensor_enable(True) # Enable the force torque sensor
 arm.set_ft_collision_detection(True)    # Enable force torque collision detection
+
 arm.set_ft_collision_rebound(True)      # Set rebound after force torque collision
-arm.set_ft_collision_threshold([200, 200, 10, 2, 2, 0.4]) # Set Z-axis force threshold to 30N
+arm.set_ft_collision_threshold([0.2, 0.2, 0.2, 0.05, 0.05, 0.4]) # Set Z-axis force threshold to 30N
+
+arm.set_ft_collision_reb_distance([20.0, 20.0, 20.0, 2.0, 2.0, 2.0], is_radian=False),
+
+
 
 time.sleep(0.5)
 
